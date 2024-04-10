@@ -1,71 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
 <!-- Include Head -->
 
-<%- include('../partials/head') %>
+<%- include('./partials/head') %>
 
 <body>
-	<!-- Header -->
-	<header class="main-header">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-5 col-md-2">
-					<a href="index" class="main-header_home-link">
-						<img src="./images/logo-mercado-liebre.svg">
-					</a>
-				</div>
-	
-				<div class="col-7 col-md-6">
-					<form action="search-results" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más"
-							class="search-form_input">
-						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
-					</form>
-				</div>
-	
-				<div class="col-12 col-md-4">
-					<a class="main-header_credit-link">
-						<i class="fas fa-hand-holding-usd"></i>
-						Todas las opiniones en un solo lugar.
-					</a>
-				</div>
-			</div>
-	
-			<button class="btn-toggle-navbar">
-				<i class="fas fa-bars"></i>
-			</button>
-	
-			<nav class="main-navbar">
-				<ul class="left-navbar">
-					<li><a href="index">Todos los productos</a></li>
-					<!-- solo logueado <li><a href="">Cargar productos</a></li> -->
-				</ul>
-	
-				<ul class="right-navbar">
-					<!-- Solo logueado <li><a href="profile.html">
-								Nombre del usuario <i class="fas fa-user"></i>
-							</a>
-						</li>
-						<li>
-							<form action="" method="post">
-								<button class="logout" type="submit">
-									Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-								</button>
-							</form>
-						</li> -->
-					<li>
-						<a href="register">Creá tu cuenta <i class="far fa-address-card"></i>
-						</a>
-					</li>
-					<li>
-						<a href="login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<!-- /Header -->
-
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
@@ -73,14 +10,27 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
-			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
-			////////////////
+			<h2 class="col-12"> Resultados de busqueda
 			</h2>
-
+			<% for( let i = 0; i < 4; i++ ) { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/product">
+							<figure class="product-box_image">
+								<img src="<%= data.productos[i].fotoproducto %>" alt="<% %>" width="300" >
+							</figure>
+							<article class="product-box_data">
+								<h2> <%= data.productos[i].nombreproducto %> </h2>
+								<p><%= data.productos[i].descripcion %></p>
+								<p> Comentarios: <%=data.productos[i].comentarios.length %> </p>
+							</article>
+						</a>
+					</section>
+				</div>
+			<% } %>
 
 	<!-- footer -->
-	<%- include('../partials/footer') %>
+	<%- include('./partials/footer') %>
 	
 </body>
 

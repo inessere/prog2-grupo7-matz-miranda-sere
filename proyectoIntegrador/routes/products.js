@@ -1,12 +1,15 @@
 var express = require('express');
 var router = express.Router();
-const controlador = require('../controllers/productController');
-const controlador = require('../controllers/productAddController');
-const controlador = require('../controllers/searchResultsController');
+const controladorProduct = require('../controllers/productController');
+const controladorProductadd = require('../controllers/productAddController');
+const controladorSearchresults = require('../controllers/searchResultsController');
+const controladorIndex = require('../controllers/indexController');
 
 
-router.get('/product-add', controlador.productAdd);
-router.get('/product', controlador.product);
-router.get('/search-results', controlador.searchResults);
+router.get("/",controladorIndex.index);
+router.get('/product-add', controladorProductadd.productAdd);
+router.get('/search-results', controladorSearchresults.searchResults);
+router.get("/product",controladorProduct.product);
+
 
 module.exports = router;

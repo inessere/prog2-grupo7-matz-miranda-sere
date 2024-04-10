@@ -1,7 +1,10 @@
-const controlador = {
+const db = require("../db/index");
+const controlador6 = {
     profileEdit: function(req, res) {
-        res.render ("profile-edit");
+        res.render ("profile-edit", { "data": db
+
+      });
       }
     }
 
-module.exports = controlador;
+module.exports = controlador6;
