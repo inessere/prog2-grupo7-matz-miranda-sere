@@ -5,35 +5,40 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
+			<h2 class="products-title"><%= data.productos[0].nombreproducto %></h2> 
 			<p class="product-detail-description">
 				<a href="product-add">Editar</a>
 			</p>
 		</div>
 
 		
-		<div class="product-detail">
-			<div class="row">
+		<div class="product-detail ">
+			<div class="comentario">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/images/products/img-macbook-pro-2019.jpg" alt="macbook">
-					<p class="product-detail-description">CPU de 8 núcleos con 4 núcleos de rendimiento</p>
+					<img src="<%= data.productos[0].fotoproducto %> "alt="macbook">
+					<p class="product-detail-description"><%= data.productos[0].descripcion%></p>
 				</article>
 				
-				<% for( let i = 0; i < data.productos.comentarios.length; i++ ) { %>
-					<div class="comentario">
-						<img src="<%= data.productos.comentarios[i].imagenPerfil %>" alt="Foto de perfil" width="50">
-						<p class="nombre-usuario"><strong><%= data.productos.comentarios[i].nombreusuario %></strong></p>
-						<p class="comentario-texto"><%= data.productos.comentarios[i].comentarioText %></p>
+				<div class="">
+				<% for( let i = 0; i < data.productos[0].comentarios.length; i++ ) { %>
+					<div class="comentariosProducto">
+						<img class="fotoPerfilUsuario"src="<%= data.productos[0].comentarios[i].imagenPerfil %>" alt="Foto de perfil" width="50">
+						<a href="/users/profile"><p class="nombre-usuario"><strong><%= data.productos[0].comentarios[i].nombreusuario %></strong></p></a>
+						<p class="comentario-texto"><%= data.productos[0].comentarios[i].comentarioText %></p>
 					</div>
 				<% } %>
 				
 						
 					</section>
-					<form class="form" action="" method="POST">
+					
+					<form class="form" action="/products/product" method="get">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						
 					</form>
+					
 					<hr>
+					
 				</div>
 			</div>
 		</div>

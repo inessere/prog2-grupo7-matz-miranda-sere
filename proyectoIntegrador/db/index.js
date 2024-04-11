@@ -9,41 +9,42 @@ const mercadoLiebre =
         fotoDePerfil: "/images/fotonueva.jpg"
     },
     productos: [
-        {   fotoproducto: "/images/products/img-macbook-pro-2019.jpg",
-            nombreproducto: "computadora",
-            descripcion: "CPU de 8 núcleos con 4 núcleos de rendimiento",
+
+        {   fotoproducto: "/images/products/ipod1.jpg",
+            nombreproducto: "Ipod",
+            descripcion: "Dispositivo sin chip de 128gb, batería recargable, conexión USB y bluetooth.",
             comentarios: [
                 {
-                    nombreusuario: "Ines",
-                    comentarioText: "amo apple, muy bueno",
+                    nombreusuario: "Ines: ",
+                    comentarioText: " Amo apple, muy bueno",
                     imagenPerfil: "/images/users/inesere.jpg"
                 },
                 {
-                    nombreusuario: "Maria",
+                    nombreusuario: "Maria: ",
                     comentarioText: "Me funciona mal, prefiero windows",
-                    imagenPerfil: "/images/users/mariamiranda.jpg"
+                    imagenPerfil: "/images/users/fotomaria.jpeg"
                 },
                 {
-                    nombreusuario: "Federico",
-                    comentarioText: "me la quiero comprar, como hago?",
+                    nombreusuario: "Federico: ",
+                    comentarioText: "Me la quiero comprar, como hago?",
                     imagenPerfil: "/images/users/federicomatz.jpg"
                 }
             ]
         },
         { 
-            fotoproducto: "/images/products/img-cafetera-moulinex.jpg",
-            nombreproducto: "iPhone 12",
-            descripcion: "Pantalla Super Retina XDR de 6.1 pulgadas",
+            fotoproducto: "/images/products/airpods.jpg",
+            nombreproducto: "Airpods",
+            descripcion: "Inalambricos y resistentes al agua",
             comentarios: [
                 {
                     nombreusuario: "Carlos",
-                    comentarioText: "Excelente teléfono, muy rápido",
+                    comentarioText: "Excelentes auriculares",
                     imagenPerfil: "/images/users/inesere.jpg"
                 },
                 {
                     nombreusuario: "Laura",
                     comentarioText: "No me gusta, prefiero Android",
-                    imagenPerfil: "/images/users/mariamiranda.jpg"
+                    imagenPerfil: "/images/users/fotomaria.jpeg"
                 },
                 {
                     nombreusuario: "Pedro",
@@ -53,9 +54,9 @@ const mercadoLiebre =
             ]
         },
         { 
-            fotoproducto: "/images/products/img-macbook-pro-2019.jpg",
-            nombreproducto: "Samsung Galaxy S21",
-            descripcion: "Procesador Exynos 2100 de 8 núcleos",
+            fotoproducto: "/images/products/ipad.jpg",
+            nombreproducto: "Ipad",
+            descripcion: "Ipad pro 128gb",
             comentarios: [
                 {
                     nombreusuario: "Ana",
@@ -75,9 +76,9 @@ const mercadoLiebre =
             ]
         },
         { 
-            fotoproducto: "/images/products/img-macbook-pro-2019.jpg",
-            nombreproducto: "AirPods Pro",
-            descripcion: "Cancelación activa de ruido y audio de alta calidad",
+            fotoproducto: "/images/products/ipencil.png",
+            nombreproducto: "Ipencil",
+            descripcion: "Accesorio para el ipad",
             comentarios: [
                 {
                     nombreusuario: "Raul",
@@ -97,9 +98,9 @@ const mercadoLiebre =
             ]
         },
         { 
-            fotoproducto: "/images/products/img-macbook-pro-2019.jpg",
-            nombreproducto: "Amazon Echo",
-            descripcion: "Altavoz inteligente con asistente virtual Alexa",
+            fotoproducto: "/images/products/iphone.jpg",
+            nombreproducto: "Iphone",
+            descripcion: "Iphone Pro Max 128gb",
             comentarios: [
                 {
                     nombreusuario: "Julia",
@@ -119,9 +120,9 @@ const mercadoLiebre =
             ]
         },
         { 
-            fotoproducto: "/images/products/img-macbook-pro-2019.jpg",
-            nombreproducto: "PlayStation 5",
-            descripcion: "Consola de nueva generación con gráficos de alta calidad",
+            fotoproducto: "/images/products/iwatch.jpg",
+            nombreproducto: "Apple watch",
+            descripcion: "Reloj inteligente con pantalla tactil",
             comentarios: [
                 {
                     nombreusuario: "Miguel",
@@ -141,9 +142,9 @@ const mercadoLiebre =
             ]
         },
         { 
-            fotoproducto: "/images/products/img-macbook-pro-2019.jpg",
-            nombreproducto: "Fitbit Versa 3",
-            descripcion: "Smartwatch con monitorización de actividad física",
+            fotoproducto: "/images/products/computadora.jpg",
+            nombreproducto: "Computadora de escritorio",
+            descripcion: "Monitor de escritorio",
             comentarios: [
                 {
                     nombreusuario: "Laura",
@@ -164,8 +165,8 @@ const mercadoLiebre =
         },
         { 
             fotoproducto: "/images/products/img-macbook-pro-2019.jpg",
-            nombreproducto: "Google Pixel 6",
-            descripcion: "Teléfono con cámara avanzada y procesador potente",
+            nombreproducto: "Macbook",
+            descripcion: "CPU de 8 núcleos con 4 núcleos de rendimiento",
             comentarios: [
                 {
                     nombreusuario: "Santiago",
@@ -185,9 +186,9 @@ const mercadoLiebre =
             ]
         },
         { 
-            fotoproducto: "/images/products/img-macbook-pro-2019.jpg",
-            nombreproducto: "Bose Sleepbuds",
-            descripcion: "Auriculares diseñados para mejorar el sueño",
+            fotoproducto: "/images/products/funda.jpg",
+            nombreproducto: "Funda de Iphone",
+            descripcion: "Funda de acrilico transparente marca Apple",
             comentarios: [
                 {
                     nombreusuario: "Valeria",
@@ -207,9 +208,9 @@ const mercadoLiebre =
             ]
         },
         { 
-            fotoproducto: "/images/products/img-macbook-pro-2019.jpg",
-            nombreproducto: "Xbox Series X",
-            descripcion: "Consola potente con gráficos de alta resolución",
+            fotoproducto: "/images/products/parlante.jpg",
+            nombreproducto: "Parlante inalambrico",
+            descripcion: "Parlante con conexión Bluetooth",
             comentarios: [
                 {
                     nombreusuario: "Hugo",

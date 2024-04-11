@@ -66,20 +66,35 @@ hr {
 
 
 /*====== Main Header ======*/
+
+.tituloApple{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 25px;
+  color: white;
+  margin-left: 220px;
+}
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: rgb(153, 152, 152);
+  color: white;
 }
 
 .main-header_home-link,
 .main-header_credit-link {
   display: block;
+  width: 90px;
+  height: 90px;
+  font-family:Arial, Helvetica, sans-serif;
+  
+  
 }
 
 .main-header_credit-link {
   font-size: 1.5em;
   margin-top: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .search-form {
@@ -154,7 +169,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -171,6 +186,8 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  padding-top: 30px;
   color: var(--gray);
 }
 
@@ -257,6 +274,8 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
+
+
 /*====== Footer ======*/
 .main-footer {
   background-color: #ffffff;
@@ -269,7 +288,7 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
+  color: var(--gray);
   font-size: 3.5em;
 }
 
@@ -327,14 +346,21 @@ hr {
   line-height: 1.5;
 }
 
+.comentariosProducto{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 50px;
+  font-size: larger;
+}
 .product-detail-price {
   font-size: 5.5em;
   margin: 10px 0;
 }
 .product-detail .form{
-  padding: 0 15px;
+  padding: 0px 15px;
   display: flex;
   flex-direction: column;
+
 }
 .small {
   font-size: 1.8em;
@@ -405,6 +431,7 @@ hr {
   border-bottom: 1px solid #dcdcdc;
   display: flex;
   justify-content: space-between;
+  
 }
 .comments img{
   width: 40px;
@@ -418,10 +445,18 @@ hr {
 .comments p{
   font-size: 1.5em;
   margin-top: 0;
+  
 }
 .comments .user{
   font-size: 1.7em;
 }
+
+.comentario{
+  display: flex;
+  flex-direction: row;
+  
+}
+
 
 /*====== Formularios ======*/
 .form-label {
@@ -476,6 +511,20 @@ textarea.form-input {
   color: #fff;
 }
 
+p{
+  font-family:monospace;
+}
+
+h2{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*Comentarios de product*/
+.fotoPerfilUsuario{
+  width: 50px;
+  border-radius: 80px;
+  margin: 10px;
+}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
