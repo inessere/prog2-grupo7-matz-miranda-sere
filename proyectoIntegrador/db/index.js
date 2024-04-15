@@ -12,6 +12,7 @@ const mercadoLiebre =
 
         {   fotoproducto: "/images/products/ipod1.jpg",
             nombreproducto: "Ipod",
+            id: 1,
             descripcion: "Dispositivo sin chip de 128gb, batería recargable, conexión USB y bluetooth.",
             comentarios: [
                 {
@@ -34,6 +35,7 @@ const mercadoLiebre =
         { 
             fotoproducto: "/images/products/airpods.jpg",
             nombreproducto: "Airpods",
+            id: 2,
             descripcion: "Inalambricos y resistentes al agua",
             comentarios: [
                 {
@@ -56,6 +58,7 @@ const mercadoLiebre =
         { 
             fotoproducto: "/images/products/ipad.jpg",
             nombreproducto: "Ipad",
+            id: 3,
             descripcion: "Ipad pro 128gb",
             comentarios: [
                 {
@@ -66,7 +69,7 @@ const mercadoLiebre =
                 {
                     nombreusuario: "David",
                     comentarioText: "No lo recomiendo, problemas de batería",
-                    imagenPerfil: "/images/users/mariamiranda.jpg"
+                    imagenPerfil: "/images/users/fotomaria.jpeg"
                 },
                 {
                     nombreusuario: "Elena",
@@ -78,6 +81,7 @@ const mercadoLiebre =
         { 
             fotoproducto: "/images/products/ipencil.png",
             nombreproducto: "Ipencil",
+            id: 4,
             descripcion: "Accesorio para el ipad",
             comentarios: [
                 {
@@ -88,7 +92,7 @@ const mercadoLiebre =
                 {
                     nombreusuario: "Sara",
                     comentarioText: "No me convencen, prefiero los auriculares con cable",
-                    imagenPerfil: "/images/mariamiranda.jpg"
+                    imagenPerfil: "/images/users/fotomaria.jpeg"
                 },
                 {
                     nombreusuario: "Diego",
@@ -100,6 +104,7 @@ const mercadoLiebre =
         { 
             fotoproducto: "/images/products/iphone.jpg",
             nombreproducto: "Iphone",
+            id: 5,
             descripcion: "Iphone Pro Max 128gb",
             comentarios: [
                 {
@@ -110,7 +115,7 @@ const mercadoLiebre =
                 {
                     nombreusuario: "Mario",
                     comentarioText: "No me gusta, la voz de Alexa es molesta",
-                    imagenPerfil: "/images/users/mariamiranda.jpg"
+                    imagenPerfil: "/images/users/fotomaria.jpeg"
                 },
                 {
                     nombreusuario: "Eva",
@@ -122,6 +127,7 @@ const mercadoLiebre =
         { 
             fotoproducto: "/images/products/iwatch.jpg",
             nombreproducto: "Apple watch",
+            id: 6,
             descripcion: "Reloj inteligente con pantalla tactil",
             comentarios: [
                 {
@@ -132,7 +138,7 @@ const mercadoLiebre =
                 {
                     nombreusuario: "Isabel",
                     comentarioText: "Demasiado cara, prefiero la PS4",
-                    imagenPerfil: "/images/users/mariamiranda.jpg"
+                    imagenPerfil: "/images/users/fotomaria.jpeg"
                 },
                 {
                     nombreusuario: "Antonio",
@@ -144,6 +150,7 @@ const mercadoLiebre =
         { 
             fotoproducto: "/images/products/computadora.jpg",
             nombreproducto: "Computadora de escritorio",
+            id: 7,
             descripcion: "Monitor de escritorio",
             comentarios: [
                 {
@@ -154,7 +161,7 @@ const mercadoLiebre =
                 {
                     nombreusuario: "Juan",
                     comentarioText: "No es muy preciso en las mediciones",
-                    imagenPerfil: "/images/users/mariamiranda.jpg"
+                    imagenPerfil: "/images/users/fotomaria.jpeg"
                 },
                 {
                     nombreusuario: "Carolina",
@@ -166,6 +173,7 @@ const mercadoLiebre =
         { 
             fotoproducto: "/images/products/img-macbook-pro-2019.jpg",
             nombreproducto: "Macbook",
+            id: 8,
             descripcion: "CPU de 8 núcleos con 4 núcleos de rendimiento",
             comentarios: [
                 {
@@ -176,7 +184,7 @@ const mercadoLiebre =
                 {
                     nombreusuario: "Camila",
                     comentarioText: "No me gusta el diseño, prefiero otros modelos",
-                    imagenPerfil: "/images/users/mariamiranda.jpg"
+                    imagenPerfil: "/images/users/fotomaria.jpeg"
                 },
                 {
                     nombreusuario: "Lucas",
@@ -188,6 +196,7 @@ const mercadoLiebre =
         { 
             fotoproducto: "/images/products/funda.jpg",
             nombreproducto: "Funda de Iphone",
+            id: 9,
             descripcion: "Funda de acrilico transparente marca Apple",
             comentarios: [
                 {
@@ -198,7 +207,7 @@ const mercadoLiebre =
                 {
                     nombreusuario: "Roberto",
                     comentarioText: "No noto diferencia en la calidad de sueño",
-                    imagenPerfil: "/images/users/mariamiranda.jpg"
+                    imagenPerfil: "/images/users/fotomaria.jpeg"
                 },
                 {
                     nombreusuario: "Marina",
@@ -210,6 +219,7 @@ const mercadoLiebre =
         { 
             fotoproducto: "/images/products/parlante.jpg",
             nombreproducto: "Parlante inalambrico",
+            id: 10,
             descripcion: "Parlante con conexión Bluetooth",
             comentarios: [
                 {
@@ -220,7 +230,7 @@ const mercadoLiebre =
                 {
                     nombreusuario: "Ana",
                     comentarioText: "Demasiado grande, prefería el diseño anterior",
-                    imagenPerfil: "/images/users/mariamiranda.jpg"
+                    imagenPerfil: "/images/users/fotomaria.jpeg"
                 },
                 {
                     nombreusuario: "Luisa",
@@ -230,8 +240,9 @@ const mercadoLiebre =
             ]
         }
     ]
-
 }
+
+
 
 module.exports = mercadoLiebre
 

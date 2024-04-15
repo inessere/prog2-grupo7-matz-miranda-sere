@@ -1,5 +1,5 @@
 const db = require("../db/index");
-const controlador6 = {
+const controladorProfileEdit = {
     profileEdit: function(req, res) {
         res.render ("profile-edit", { "data": db
 
@@ -7,4 +7,4 @@ const controlador6 = {
       }
     }
 
-module.exports = controlador6;
+module.exports = controladorProfileEdit;

@@ -1,6 +1,6 @@
 const db = require("../db/index");
 
-const controlador3 = {
+const controladorProductAdd = {
     productAdd: function(req, res) {
         res.render ("product-add",{ "data": db
 
@@ -8,4 +8,4 @@ const controlador3 = {
       }
     }
 
-module.exports = controlador3;
+module.exports = controladorProductAdd;

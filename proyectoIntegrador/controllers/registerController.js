@@ -1,7 +1,7 @@
-const controlador7 = {
+const controladorRegister = {
     register: function(req, res) {
         res.render ("register");
       }
     }
 
-module.exports = controlador7;
+module.exports = controladorRegister;

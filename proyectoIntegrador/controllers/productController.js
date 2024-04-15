@@ -1,9 +1,9 @@
 const db = require("../db/index");
-const controlador4 = {
+const controladorProduct = {
     product: function(req, res) {
         res.render ("product", { "data": db 
       });
       }
     }
 
-module.exports = controlador4;
+module.exports = controladorProduct;

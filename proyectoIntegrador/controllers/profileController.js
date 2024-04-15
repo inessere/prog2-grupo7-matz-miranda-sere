@@ -1,6 +1,6 @@
 const db = require("../db/index");
 
-const controlador5 = {
+const controladorProfile = {
     profile: function(req, res) {
         res.render ("profile" ,{ "data": db
 
@@ -8,4 +8,4 @@ const controlador5 = {
       }
     }
 
-module.exports = controlador5;
+module.exports = controladorProfile;

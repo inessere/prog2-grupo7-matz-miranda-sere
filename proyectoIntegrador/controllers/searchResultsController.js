@@ -1,5 +1,5 @@
 const db = require("../db/index");
-const controlador8 = {
+const controladorSearch = {
     searchResults: function(req, res) {
         res.render ("search-results", { "data": db
 
@@ -7,4 +7,4 @@ const controlador8 = {
       }
     }
 
-module.exports = controlador8;
+module.exports = controladorSearch;

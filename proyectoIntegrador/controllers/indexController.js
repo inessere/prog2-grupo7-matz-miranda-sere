@@ -1,12 +1,13 @@
-const db = require("../db/index");
+const db                = require("../db/index");
 
-const controlador = {
+const controladorIndex  = {
     index: function(req, res) {
         res.render ("index", { "data": db
-
+    
         });
-      }
+    },
+    
+        
 }
 
-
-module.exports = controlador;
+module.exports = controladorIndex;
