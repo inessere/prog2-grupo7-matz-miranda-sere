@@ -1,8 +1,8 @@
 var express                     = require('express');
 var router                      = express.Router();
 const controladorProduct        = require('../controllers/productController');
-const controladorProductadd     = require('../controllers/productAddController');
-const controladorSearchresults  = require('../controllers/searchResultsController');
+const controladorProductadd     = require('../controllers/productController');
+const controladorSearchresults  = require('../controllers/productController');
 const controladorIndex          = require('../controllers/indexController');
 
 

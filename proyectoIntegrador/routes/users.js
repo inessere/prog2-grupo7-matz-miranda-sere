@@ -1,9 +1,9 @@
 var express                     = require('express');
 var router                      = express.Router();
-const controladorLogin          = require('../controllers/loginController');
-const controladorProfileedit    = require('../controllers/profileEditController');
-const controladorProfile        = require('../controllers/profileController');
-const controladorRegister       = require('../controllers/registerController');
+const controladorLogin          = require('../controllers/usersController');
+const controladorProfileedit    = require('../controllers/usersController');
+const controladorProfile        = require('../controllers/usersController');
+const controladorRegister       = require('../controllers/usersController');
 const controladorIndex          = require('../controllers/indexController');
 
 router.get("/",controladorIndex.index);
