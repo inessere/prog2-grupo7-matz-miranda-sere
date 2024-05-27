@@ -1,11 +1,13 @@
 const db = require("../database/models");
-const Producto =db.Producto;
 
 const controladorIndex  = {
     index: function(req, res) {
-        Producto.findAll().then(function(results) {
+        db.Producto.findAll()
+        .then(function(results) {
             return res.send(results)
             
+        }).catch(function(err) {
+            return console.log(err);
         })
         // res.render ("index", { "data": db});
     },

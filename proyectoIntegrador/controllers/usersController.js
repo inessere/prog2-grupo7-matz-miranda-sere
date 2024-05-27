@@ -1,9 +1,17 @@
 const db = require("../database/models");
-const Producto =db.Producto;
 
 const controladorUsers = {
     profile: function(req, res) {
-        // res.render ("profile" ,{ "data": db});
+
+       let id = req.params.id
+        db.Usuario.findByPk(id)
+        .then(function (result) {
+          return res.send(result);
+        }).catch(function (err) {
+          return console.log(err); ;
+        })
+
+        
     },
 
     login: function (req, res) {
@@ -20,5 +28,5 @@ const controladorUsers = {
   
   }
 
-const movie = db.Movie;
+
 module.exports = controladorUsers;

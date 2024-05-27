@@ -1,15 +1,12 @@
 var express                     = require('express');
 var router                      = express.Router();
-const controladorLogin          = require('../controllers/usersController');
-const controladorProfileedit    = require('../controllers/usersController');
-const controladorProfile        = require('../controllers/usersController');
-const controladorRegister       = require('../controllers/usersController');
-const controladorIndex          = require('../controllers/indexController');
+const userController          = require('../controllers/usersController');
 
-router.get("/",controladorIndex.index);
-router.get('/login', controladorLogin.login);
-router.get('/profile-edit', controladorProfileedit.profileEdit);
-router.get('/profile', controladorProfile.profile);
-router.get('/register', controladorRegister.register);
+
+router.get("/id/:id",userController.profile);
+router.get('/login', userController.login);
+router.get('/profile-edit', userController.profileEdit);
+router.get('/profile', userController.profile);
+router.get('/register', userController.register);
 
 module.exports = router;
