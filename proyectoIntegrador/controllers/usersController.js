@@ -9,9 +9,7 @@ const controladorUsers = {
           return res.send(result);
         }).catch(function (err) {
           return console.log(err); ;
-        })
-
-        
+        }) 
     },
 
     login: function (req, res) {
