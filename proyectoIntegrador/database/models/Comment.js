@@ -1,40 +1,46 @@
-module.exports= function (sequelize,dataTypes) {
+module.exports = function (sequelize, dataTypes) {
     let alias = "Comentario";
-    let cols={
-        id:{
-            autoIncrement:true,
+    let cols = {
+        id: {
+            autoIncrement: true,
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        idProducto:{
+        idProducto: {
             type: dataTypes.INTEGER
         },
-        idUsuario:{
+        idUsuario: {
             type: dataTypes.INTEGER
         },
-        createdAt:{
+        createdAt: {
             type: dataTypes.DATE
         },
-        updatedAt:{
+        updatedAt: {
             type: dataTypes.DATE
         },
-        deletedAt:{
+        deletedAt: {
             type: dataTypes.DATE
         }
 
     }
-    let config={
+    let config = {
         tableName: "comentarios",
         timestamps: false,
         underscored: false
     }
 
-    let Comentario = sequelize.define(alias,cols,config);
-    Comentario.associate = function (models){
+    let Comentario = sequelize.define(alias, cols, config);
+
+    Comentario.associate = function (models) {
         Comentario.belongsTo(models.Producto, {
-            as: "producto", 
+            as: "producto",
             foreignKey: "idProducto"
-        })
+        });
+        Comentario.belongsTo(models.Usuario, {
+            as: "usuario",
+            foreignKey: "idUsuario"
+        });
     }
+
     return Comentario;
 }

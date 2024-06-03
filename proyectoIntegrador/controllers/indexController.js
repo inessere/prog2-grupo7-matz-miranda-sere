@@ -5,10 +5,11 @@ const controladorIndex  = {
     index: function(req, res) {
 
         let criterio = {
-            include: {
-                association: "producto",
+            include: [
+                {association: "usuario"},
+                {association: "producto"}
 
-            }
+            ]
         }
         
         db.Comentario.findAll(criterio)
