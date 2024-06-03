@@ -1,8 +1,17 @@
+const { Association } = require("sequelize");
 const db = require("../database/models");
 
 const controladorIndex  = {
     index: function(req, res) {
-        db.Producto.findAll()
+
+        let criterio = {
+            include: {
+                association: "producto",
+
+            }
+        }
+        
+        db.Comentario.findAll(criterio)
         .then(function(results) {
             return res.send(results)
             
