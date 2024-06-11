@@ -10,6 +10,7 @@ CREATE TABLE usuarios (
     fecha				DATE 			NOT NULL,
     numeroDocumento 	INT 			NOT NULL,
     fotodeperfil 		VARCHAR(250) 	NOT NULL,
+    username            VARCHAR(250)    NOT NULL,
     createdAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ,
 	updatedAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deletedAt			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP
@@ -44,51 +45,51 @@ CREATE TABLE comentarios (
 /****** USUARIOS ******/
 
 INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,"isere@gmail.com","ines123","2005-03-01",46423504,"fotoPerfil1.png",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,"isere@gmail.com","ines123","2005-03-01",46423504,"inesere.jpg",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,"fmatz@gmail.com","fede123","2004-07-15",46025061,"fotoPerfil2.png",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,"fmatz@gmail.com","fede123","2004-07-15",46025061,"federicomatz.jpg",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,"mmiranda@gmail.com","machi123","2004-10-05",46213493,"fotoPerfil3.png",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,"mmiranda@gmail.com","machi123","2004-10-05",46213493,"fotomaria.jpeg",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,"vaca@gmail.com","vaca123","2020-12-24",12345678,"fotoPerfil4.png",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,"vaca@gmail.com","vaca123","2020-12-24",12345678,"default-image.png",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,"oli@gmail.com","oli123","2017-08-16",13579123,"fotoPerfil5.png",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,"oli@gmail.com","oli123","2017-08-16",13579123,"default-image.png",DEFAULT,DEFAULT,DEFAULT);
 
 /****** POSTEOS ******/
 
 INSERT INTO productos (id,idUsuario,fotoProducto,nombreProducto,descripcionProducto,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,1,"fotoProducto1.png","computadora","CPU de 8 núcleos con 4 núcleos de rendimiento",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,1,"airpods.jpg","airpods","inalambricos y resistentes al agua",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO productos (id,idUsuario,fotoProducto,nombreProducto,descripcionProducto,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,1,"fotoProducto2.png","telefono","iphone con 128GB",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,1,"computadora.jpg","computadora","cpu de 8 nucleos con 4 nucleos de rendimiento",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO productos (id,idUsuario,fotoProducto,nombreProducto,descripcionProducto,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,2,"fotoProducto3.png","heladera","heladera doble puerta",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,2,"img-macbook-pro-2019.jpg","macbook","Monitor de escritorio",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO productos (id,idUsuario,fotoProducto,nombreProducto,descripcionProducto,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,2,"fotoProducto4.png","horno","horno a gas",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,2,"ipad.jpg","ipad","ipad pro de 128gb",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO productos (id,idUsuario,fotoProducto,nombreProducto,descripcionProducto,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,3,"fotoProducto5.png","microondas","microondas con grill",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,3,"ipencil.png","pencil","accesorio para el ipad",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO productos (id,idUsuario,fotoProducto,nombreProducto,descripcionProducto,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,3,"fotoProducto6.png","aire acondicionado","aire frio-calor",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,3,"iphone.jpg","iphone","iphone pro max 128gb",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO productos (id,idUsuario,fotoProducto,nombreProducto,descripcionProducto,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,4,"fotoProducto7.png","mesa","mesa de madera",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,4,"ipod1.jpg","ipod","Dispositivo sin chip",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO productos (id,idUsuario,fotoProducto,nombreProducto,descripcionProducto,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,4,"fotoProducto8.png","cartuchera","cartuchera doble cierre",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,4,"iwatch.jpg","apple watch","Reloj inteligente con pantalla tactil",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO productos (id,idUsuario,fotoProducto,nombreProducto,descripcionProducto,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,5,"fotoProducto9.png","mochila","mochila jansport",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,5,"parlante.jpg","parlante inalambrico","parlante con conexion bluetooth",DEFAULT,DEFAULT,DEFAULT);
 
 INSERT INTO productos (id,idUsuario,fotoProducto,nombreProducto,descripcionProducto,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,5,"fotoProducto10.png","cafetera","cafetera con capsulas",DEFAULT,DEFAULT,DEFAULT);
+VALUES (DEFAULT,5,"funda.jpg","funda de iphone","Funda de acrilico transparente marca apple",DEFAULT,DEFAULT,DEFAULT);
 
 /****** COMENTARIOS ******/
 

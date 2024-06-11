@@ -1,21 +1,43 @@
+const { Association } = require("sequelize");
 const db = require("../database/models");
 const Producto =db.Producto;
 const controladorProduct = {
 
 
-    product: function(req, res) {
-        // res.render ("product", {"data": db});
+    detalle: function(req, res) {
+    let id = req.params.id
+        let criterio = {
+            include:[
+                {association: "comentario", include:[
+                    {association: "usuario"}
+                ]},
+                {association: "usuario"}
+                    
+              
+            ]
+        }
+        Producto.findByPk(id,criterio)
+        .then(function (data) {
+          return res.render ("product", {data: data});   
+        })
+        .catch(function (err) {
+            return 
+        })
     },
     
-    productAdd: function(req, res) {
-        // res.render ("product-add",{ "data": db});
+    showFormCreate: function(req, res) {
+        return res.render ("product-add");
     },
 
     searchResults: function(req, res) {
-    //   res.render ("search-results", { "data": db});
+       res.render ("search-results", { "data": db});
+    },
+    store:function (req,res) {
+    return res.redirect("/index")
+        
     }
     
 }   
 
-const movie = db.Movie;
+
 module.exports = controladorProduct;

@@ -5,7 +5,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= data.productos[0].nombreproducto %></h2> 
+		<!--	<h2 class="products-title"><%= data.nombreProducto %></h2> --> 
 			<p class="product-detail-description">
 				<a href="product-add">Editar</a>
 			</p>
@@ -15,16 +15,16 @@
 		<div class="product-detail ">
 			<div class="comentario">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%= data.productos[0].fotoproducto %> "alt="macbook">
-					<p class="product-detail-description"><%= data.productos[0].descripcion%></p>
+					<img src="/images/products/<%= data.fotoproducto %> "alt="macbook">
+					<p class="product-detail-description"><%= data.descripcion%></p>
 				</article>
 				
 				<div class="">
-				<% for( let i = 0; i < data.productos[0].comentarios.length; i++ ) { %>
+				<% for( let i = 0; i < data.comentario.length; i++ ) { %>
 					<div class="comentariosProducto">
-						<img class="fotoPerfilUsuario"src="<%= data.productos[0].comentarios[i].imagenPerfil %>" alt="Foto de perfil" width="50">
-						<a href="/users/profile"><p class="nombre-usuario"><strong><%= data.productos[0].comentarios[i].nombreusuario %></strong></p></a>
-						<p class="comentario-texto"><%= data.productos[0].comentarios[i].comentarioText %></p>
+						<img class="fotoPerfilUsuario"src="/images/users/<%= data.comentario[i].usuario.fotodeperfil %>" alt="Foto de perfil" width="50">
+						<a href="/users/profile"><p class="nombre-usuario"><strong> <%= data.comentario[i].usuario.mail %> </strong></p></a>
+						<p class="comentario-texto"><%= data.comentario[i].comentario  %></p>
 					</div>
 				<% } %>
 				
@@ -44,6 +44,7 @@
 		</div>
 	</div>
 	<!-- /product detail -->
+
 
 	<!-- footer -->
 	<%- include('./partials/footer') %>

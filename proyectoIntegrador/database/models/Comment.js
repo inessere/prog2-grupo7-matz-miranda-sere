@@ -12,6 +12,9 @@ module.exports = function (sequelize, dataTypes) {
         idUsuario: {
             type: dataTypes.INTEGER
         },
+        comentario:{
+            type:dataTypes.STRING
+        },
         createdAt: {
             type: dataTypes.DATE
         },
