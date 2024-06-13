@@ -8,6 +8,9 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const session = require("express-session");
+/* aca tmb estoy haciendo algo de cookies */
+const db = require("./database/models")
+// aca termina lo de cookies 
 
 
 var app = express();
@@ -22,13 +25,41 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// configuraciones de session
+app.use(session({secret:"myapp", resave: false, saveUninitialized: true}));
+app.use(function(req,res,next){
+  if (req.session.user != undefined){
+    res.locals.user = req.session.user;
+  }
+
+  return next();
+}
+);
+
+// configuracion de la cookie login aca arranca
+app.use(function(req,res,next){
+  if(req.cookies.userId != undefined && req.session.user == undefined){
+    let idUsuario = req.cookies.userId;
+    db.Usuario.findByPk(idUsuario)
+    .then((result) => {
+      req.session.user = result;
+      res.locals.user = result;
+      return next();
+    }).catch((err) =>{
+      return console.log(err);
+    });
+    
+  }else{
+     return next();
+  }
+})
+//listo lo de la cookie login aca termina
+
+
+
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
-
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

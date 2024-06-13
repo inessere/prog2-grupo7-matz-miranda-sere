@@ -1,13 +1,19 @@
 
 <!-- Include Head -->
-<%- include('./partials/head') %>
+
 <body>
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headLogueado') %>
+	 <% } else { %>
+		<%- include('./partials/head') %>
+	<% } %>
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-		<!--	<h2 class="products-title"><%= data.nombreProducto %></h2> --> 
+			<h2 class="products-title"> <%= data.nombreProducto %></h2>
+
 			<p class="product-detail-description">
-				<a href="product-add">Editar</a>
+				<a href="/products/productEdit/<%=data.id%> ">Editar</a>
 			</p>
 		</div>
 
@@ -16,14 +22,14 @@
 			<div class="comentario">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="/images/products/<%= data.fotoproducto %> "alt="macbook">
-					<p class="product-detail-description"><%= data.descripcion%></p>
+					<p class="product-detail-description"><%= data.descripcionProducto%></p>
 				</article>
 				
 				<div class="">
 				<% for( let i = 0; i < data.comentario.length; i++ ) { %>
 					<div class="comentariosProducto">
 						<img class="fotoPerfilUsuario"src="/images/users/<%= data.comentario[i].usuario.fotodeperfil %>" alt="Foto de perfil" width="50">
-						<a href="/users/profile"><p class="nombre-usuario"><strong> <%= data.comentario[i].usuario.mail %> </strong></p></a>
+						<a href="/users/profile"><p class="nombre-usuario"><strong> <%= data.comentario[i].usuario.username %> </strong></p></a>
 						<p class="comentario-texto"><%= data.comentario[i].comentario  %></p>
 					</div>
 				<% } %>

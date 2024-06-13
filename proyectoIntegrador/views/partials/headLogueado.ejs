@@ -47,17 +47,16 @@
 			</ul>
 
 			<ul class="right-navbar">
+			
 				<li><a href="/users/profile">
-					<%= data.usuario.usuario %> <i class="fas fa-user"></i>
+					<%= locals.user.mail %> <i class="fas fa-user"></i>
 					</a>
 				</li>
 				<li>
-					<form action="/users/login" method="get">
-						<button class="logout" type="submit">
-							Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-						</button>
+					<form action="/users/logout" method="post">
+					  <button type="submit" class="btn-form">Logout</button>
 					</form>
-				</li>
+				  </li>
 				<!-- Solo deslogueado <li>
 						<a href="register.html">Creá tu cuenta <i class="far fa-address-card"></i>
 						</a>

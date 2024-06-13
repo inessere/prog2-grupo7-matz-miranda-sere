@@ -44,20 +44,20 @@ CREATE TABLE comentarios (
 
 /****** USUARIOS ******/
 
-INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,"isere@gmail.com","ines123","2005-03-01",46423504,"inesere.jpg",DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,username,createdAt,updatedAt,deletedAt)
+VALUES (DEFAULT,"isere@gmail.com","ines123","2005-03-01",46423504,"inesere.jpg","ine",DEFAULT,DEFAULT,DEFAULT);
 
-INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,"fmatz@gmail.com","fede123","2004-07-15",46025061,"federicomatz.jpg",DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,username,createdAt,updatedAt,deletedAt)
+VALUES (DEFAULT,"fmatz@gmail.com","fede123","2004-07-15",46025061,"federicomatz.jpg","fede",DEFAULT,DEFAULT,DEFAULT);
 
-INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,"mmiranda@gmail.com","machi123","2004-10-05",46213493,"fotomaria.jpeg",DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,username,createdAt,updatedAt,deletedAt)
+VALUES (DEFAULT,"mmiranda@gmail.com","machi123","2004-10-05",46213493,"fotomaria.jpeg","maria",DEFAULT,DEFAULT,DEFAULT);
 
-INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,"vaca@gmail.com","vaca123","2020-12-24",12345678,"default-image.png",DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,username,createdAt,updatedAt,deletedAt)
+VALUES (DEFAULT,"vaca@gmail.com","vaca123","2020-12-24",12345678,"default-image.png","vaca",DEFAULT,DEFAULT,DEFAULT);
 
-INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,createdAt,updatedAt,deletedAt)
-VALUES (DEFAULT,"oli@gmail.com","oli123","2017-08-16",13579123,"default-image.png",DEFAULT,DEFAULT,DEFAULT);
+INSERT INTO usuarios (id,mail,contrasenia,fecha,numeroDocumento,fotodeperfil,username,createdAt,updatedAt,deletedAt)
+VALUES (DEFAULT,"oli@gmail.com","oli123","2017-08-16",13579123,"default-image.png","oli",DEFAULT,DEFAULT,DEFAULT);
 
 /****** POSTEOS ******/
 
