@@ -25,9 +25,7 @@ let validations = [
         .withMessage("Debes ingresar un nombre").bail(),
     body("contrasenia")
         .notEmpty().withMessage("La contraseña debe tener al menos 4 caracteres")
-        .isLength({ min: 4 })
-      
-    
+        .isLength({ min: 4 })   
 ]
 
 let validationsLogueado = [
@@ -48,7 +46,7 @@ let validationsLogueado = [
             where: {contrasenia: value}, 
     })
         .then(function(contrasenia){
-            if (contrasenia == undefined){
+            if (!contrasenia){
                 throw new Error("La contraseña ingresada no existe")
             }
         })
@@ -57,7 +55,7 @@ let validationsLogueado = [
 
 router.get("/id/:id", userController.profile);
 router.get('/profile-edit', userController.profileEdit);
-router.get('/profile', userController.profile);
+router.get('/profile/id/:id', userController.profile);
 router.get('/register', userController.register);
 router.get('/login', userController.login);
 router.post('/logout', userController.logout);

@@ -3,70 +3,77 @@
 
 <body>
 
-	<% if (locals.usuario != undefined) { %>
+	<% if (locals.usuario !=undefined) { %>
 		<%- include('./partials/headLogueado') %>
-	 <% } else { %>
-		<%- include('./partials/head') %>
-	<% } %>
-	
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Registrate</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<% console.log(locals); %>
-			<form class="form" action="/users/register" method="POST">
-				<div>
-					<label for="email">Email: </label>
-					<input id="email" type="email" name="email" value="<%= locals.old !== undefined && old.email ? old.email : ""  %>">
-					<% if (locals.errors && errors.email) { %>
-						<p> <%= errors.email.msg  %></p>
-					<% } %>	
-				</div> 
+			<% } else { %>
+				<%- include('./partials/head') %>
+					<% } %>
 
-				<div>				
-					<label for="usuario">Usuario: </label>
-					<input id="usuario" type="text" name="usuario" value="<%= locals.old !== undefined && old.usuario ? old.usuario : ""  %>">
-					<% if (locals.errors && errors.usuario) { %>
-						<p> <%= errors.usuario.msg  %></p>
-					<% } %>	
-				</div>
+						<!-- Novedades -->
+						<div class="container products-wrapper">
+							<div class="row">
+								<div class="col-12">
+									<h2 class="products-title">Registrate</h2>
+								</div>
+								<!-- Show the "ultimos" products -->
+								<% console.log(locals); %>
+									<form class="form" action="/users/register" method="POST">
+										<div>
+											<label for="email">Email: </label>
+											<input id="email" type="email" name="email"
+												value="<%= locals.old !== undefined && old.email ? old.email : ""  %>">
+											<% if (locals.errors && errors.email) { %>
+												<p>
+													<%= errors.email.msg %>
+												</p>
+												<% } %>
+										</div>
 
-				<div>
-					<label for="contrasenia">Contraseña: </label>
-					<input id="contrasenia" type="password" name="contrasenia" value="<%= locals.old !== undefined && old.contrasenia ? old.contrasenia : ""  %>">
-					<% if (locals.errors && errors.contrasenia) { %>
-						<p> <%= errors.contrasenia.msg  %></p>
-					<% } %>	
-				</div>
+										<div>
+											<label for="usuario">Usuario: </label>
+											<input id="usuario" type="text" name="usuario"
+												value="<%= locals.old !== undefined && old.usuario ? old.usuario : ""  %>">
+											<% if (locals.errors && errors.usuario) { %>
+												<p>
+													<%= errors.usuario.msg %>
+												</p>
+												<% } %>
+										</div>
 
-				<div>
-					<label for="cumpleaños">Fecha de nacimiento: </label>
-					<input id="cumpleaños" type="text" name="cumpleanios" value="">
-				</div>
+										<div>
+											<label for="contrasenia">Contraseña: </label>
+											<input id="contrasenia" type="password" name="contrasenia"
+												value="<%= locals.old !== undefined && old.contrasenia ? old.contrasenia : ""  %>">
+											<% if (locals.errors && errors.contrasenia) { %>
+												<p>
+													<%= errors.contrasenia.msg %>
+												</p>
+												<% } %>
+										</div>
 
-				<div>
-					<label for="dni">Numero de documento: </label>
-					<input id="dni" type="text" name="dni" value="">
-				</div>
+										<div>
+											<label for="cumpleaños">Fecha de nacimiento: </label>
+											<input id="cumpleaños" type="text" name="cumpleanios" value="">
+										</div>
 
-				<div>
-					<label for="foto">Foto de perfil: </label>
-					<input id="foto" type="file" name="foto" value="">
-				</div>
+										<div>
+											<label for="dni">Numero de documento: </label>
+											<input id="dni" type="text" name="dni" value="">
+										</div>
+
+										<div>
+											<label for="foto">Foto de perfil: </label>
+											<input id="foto" type="file" name="foto" value="">
+										</div>
 
 
-				<div>
-					<button type="submit">Enviar</button>
-				</div>
-			</form>
+										<div>
+											<button type="submit">Enviar</button>
+										</div>
+									</form>
 
-	<!-- footer -->
-	<%- include('./partials/footer') %>
+									<!-- footer -->
+									<%- include('./partials/footer') %>
 </body>
 
 </html>
-
-

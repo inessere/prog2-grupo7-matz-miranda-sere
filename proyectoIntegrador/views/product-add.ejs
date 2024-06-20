@@ -1,48 +1,59 @@
-
 <!-- Include Head -->
 
 
 <body>
-	<% if (locals.user != undefined) { %>
+	<% if (locals.user !=undefined) { %>
 		<%- include('./partials/headLogueado') %>
-	 <% } else { %>
-		<%- include('./partials/head') %>
-	<% } %>
+			<% } else { %>
+				<%- include('./partials/head') %>
+					<% } %>
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<form action="/index" method="post">
-				
-				<div>
-					<label for="fotoProducto">Foto del producto: </label>
-					<input id="fotoProducto" type="file" name="fotoProducto" value="">
-				</div>
+						<!-- Novedades -->
+						<div class="container products-wrapper">
+							<div class="row">
+								<div class="col-12">
+									<h2 class="products-title">Agregar productos</h2>
+								</div>
+								<!-- Show the "ultimos" products -->
+								<form action="/products/product-add" method="post">
 
-				<div>
-					<label for="nombreProducto">Nombre del producto: </label>
-					<input id="nombreProducto" type="text" name="nombreProducto">
-				</div>
+									<div>
+										<label for="fotoProducto">Foto del producto: </label>
+										<input id="fotoProducto" type="text" name="fotoProducto" value="<%= locals.old !== undefined && old.fotoProducto ? old.fotoProducto : "" %>">
+										<% if (locals.errors && errors.fotoProducto ) { %>
+											<p> <%= errors.fotoProducto.msg %></p>
+											
+										<%} %>
+									</div>
 
-				<div>
-					<label for="descripcion">Descripcion: </label>
-					<input id="descripcion" type="text" name="descripcion">
-				</div>
+									<div>
+										<label for="nombreProducto">Nombre del producto: </label>
+										<input id="nombreProducto" type="text" name="nombreProducto" value="<%= locals.old !== undefined && old.nombreProducto ? old.nombreProducto : "" %>">
+										<% if (locals.errors && errors.nombreProducto ) { %>
+											<p> <%= errors.nombreProducto.msg %></p>
+											
+										<%} %>
+									</div>
 
-				<div>
-					<button type="submit">Enviar</button>
-				</div>
-			</form>
+									<div>
+										<label for="descripcion">Descripcion: </label>
+										<input id="descripcion" type="text" name="descripcion" value="<%= locals.old !== undefined && old.descripcion ? old.descripcion : "" %>">
+										<% if (locals.errors && errors.descripcion ) { %>
+											<p> <%= errors.descripcion.msg %></p>
+											
+										<%} %>
+									</div>
+
+									<div>
+										<button type="submit">Enviar</button>
+									</div>
+								</form>
 
 
 
-	<!-- footer -->
-	
-	<%- include('./partials/footer') %>
+								<!-- footer -->
+
+								<%- include('./partials/footer') %>
 
 </body>
 

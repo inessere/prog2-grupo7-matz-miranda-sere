@@ -1,48 +1,51 @@
-
 <!-- Include Head -->
 
 <body>
-	<% if (locals.user != undefined) { %>
+	<% if (locals.user !=undefined) { %>
 		<%- include('./partials/headLogueado') %>
-	 <% } else { %>
-		<%- include('./partials/head') %>
-	<% } %>
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Ingresar</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<form action="/users/login" method="post">
-				
-				<div>				
-					<label for="usuario">Mail: </label>
-					<input id="usuario" type="text" name="mail" value="">
-					<% if(locals.errors && errors.mail) {%>
-						<p><%=errors.mail.msg %></p>
+			<% } else { %>
+				<%- include('./partials/head') %>
 					<% } %>
-				</div>
+						<!-- Novedades -->
+						<div class="container products-wrapper">
+							<div class="row">
+								<div class="col-12">
+									<h2 class="products-title">Ingresar</h2>
+								</div>
+								<!-- Show the "ultimos" products -->
+								<form action="/users/login" method="post">
 
-				<div>
-					<label for="contraseña">Contraseña: </label>
-					<input id="contraseña" type="password" name="contrasenia" value="">
-					<% if(locals.errors && errors.contrasenia) {%>
-						<p><%=errors.contrasenia.msg %></p>
-					<% } %>
-				</div>
+									<div>
+										<label for="usuario">Mail: </label>
+										<input id="usuario" type="text" name="mail" value="">
+										<% if(locals.errors && errors.mail) {%>
+											<p>
+												<%=errors.mail.msg %>
+											</p>
+											<% } %>
+									</div>
 
-				<div>
-					<label for="recordarme">Recordarme: </label>
-					<input type="checkbox" name="recordarme" value="Recordarme">
-				</div>
-				<div>
-					<button type="submit">Enviar</button>
-				</div>
-			</form>
+									<div>
+										<label for="contraseña">Contraseña: </label>
+										<input id="contraseña" type="password" name="contrasenia" value="">
+										<% if(locals.errors && errors.contrasenia) {%>
+											<p>
+												<%=errors.contrasenia.msg %>
+											</p>
+											<% } %>
+									</div>
 
-	<!-- footer -->
-	<%- include('./partials/footer') %>
+									<div>
+										<label for="recordarme">Recordarme: </label>
+										<input type="checkbox" name="recordarme" value="Recordarme">
+									</div>
+									<div>
+										<button type="submit">Enviar</button>
+									</div>
+								</form>
+
+								<!-- footer -->
+								<%- include('./partials/footer') %>
 </body>
 
 </html>

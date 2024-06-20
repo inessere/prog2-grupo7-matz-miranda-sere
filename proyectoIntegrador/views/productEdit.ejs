@@ -1,48 +1,53 @@
-
 <!-- Include Head -->
 
 
 <body>
-	<% if (locals.user != undefined) { %>
+	<% if (locals.user !=undefined) { %>
 		<%- include('./partials/headLogueado') %>
-	 <% } else { %>
-		<%- include('./partials/head') %>
-	<% } %>
+			<% } else { %>
+				<%- include('./partials/head') %>
+					<% } %>
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Editar producto</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<form action="/index" method="get">
-				
-				<div>
-					<label for="fotoProducto">Foto del producto: </label>
-					<input id="fotoProducto" type="file" name="fotoProducto" value="">
-				</div>
-
-				<div>
-					<label for="nombreProducto">Nombre del producto: </label>
-					<input id="nombreProducto" type="text" name="nombreProducto">
-				</div>
-
-				<div>
-					<label for="descripcion">Descripcion: </label>
-					<input id="descripcion" type="text" name="descripcion">
-				</div>
-
-				<div>
-					<button type="submit">Enviar</button>
-				</div>
-			</form>
+						<!-- Novedades -->
+						<div class="container products-wrapper">
+							<div class="row">
+								<div class="col-12">
+									<h2 class="products-title">Editar producto</h2>
+								</div>
+								<!-- Show the "ultimos" products -->
+								<form action="/products/productEdit" method="post">
+									<input type="hidden" name="id" value="<%= data.id %>">
 
 
+									<div>
+										<label for="fotoProducto">Foto del producto: </label>
+										<input id="fotoProducto" type="text" name="fotoproducto"
+											value="<%= data.fotoproducto %>">
+									</div>
 
-	<!-- footer -->
-	
-	<%- include('./partials/footer') %>
+									<div>
+										<label for="nombreProducto">Nombre del producto: </label>
+										<input id="nombreProducto" type="text" name="nombreProducto"
+											value="<%= data.nombreProducto  %>">
+									</div>
+
+									<div>
+										<label for="nombreProducto">Descripcion del producto: </label>
+										<input id="nombreProducto" type="text" name="descripcion"
+											value="<%= data.descripcionProducto  %>">
+									</div>
+
+
+									<div>
+										<button type="submit">Enviar</button>
+									</div>
+								</form>
+
+
+
+								<!-- footer -->
+
+								<%- include('./partials/footer') %>
 
 </body>
 

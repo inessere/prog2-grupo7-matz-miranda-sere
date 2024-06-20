@@ -1,15 +1,27 @@
 const bcrypt = require('bcryptjs');
 const db = require("../database/models");
-const { validationResult } = require("express-validator")
+const { validationResult } = require("express-validator");
+const { Association } = require('sequelize');
 
 
 const controladorUsers = {
-  profile: function (req, res) {
 
+
+  profile: function (req, res) {
     let id = req.params.id
-    db.Usuario.findByPk(id)
+    let criterio = {
+      include: [
+        {
+          association: "productos", include: [
+            { association: "comentario" }
+          ],
+          order: [["createdAt", "DESC"]]
+        }
+      ]
+    }
+    db.Usuario.findByPk(id, criterio)
       .then(function (result) {
-        return res.send(result);
+        return res.render("profile", { "data": result });
       }).catch(function (err) {
         return console.log(err);;
       })
@@ -72,8 +84,6 @@ const controladorUsers = {
     res.render("login")
   },
 
-
-
   loginDatos: (req, res) => {
     let errors = validationResult(req);
 
@@ -107,9 +117,6 @@ const controladorUsers = {
       //res.render("login", {errors:errors.mapped(), old:req.body});
   }}}*/
     // Validar los errores de validación utilizando express-validator
-
-
-
 
     let form = req.body;
 
@@ -145,17 +152,5 @@ const controladorUsers = {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = controladorUsers;
