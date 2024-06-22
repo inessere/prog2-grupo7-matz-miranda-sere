@@ -37,6 +37,8 @@ router.get('/editProduct/:id', controladorProduct.showFormUpdate);
 router.post("/productEdit", controladorProduct.update);
 router.post('/product-add', validationsProducto, controladorProduct.store);
 router.post("/comentario/id/:id",validationComentario, controladorProduct.storeComentario);
+router.post("/deleteProduct", controladorProduct.delete);
+
 
 
 

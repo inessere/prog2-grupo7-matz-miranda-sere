@@ -1,9 +1,9 @@
-const { Association } = require("sequelize");
-const db = require("../database/models");
-const Producto = db.Producto;
-const { Op } = require('sequelize');
-const { validationResult } = require("express-validator");
-const controladorProduct = {
+const { Association }       = require("sequelize");
+const db                    = require("../database/models");
+const Producto              = db.Producto;
+const { Op }                = require('sequelize');
+const { validationResult }  = require("express-validator");
+const controladorProduct    = {
 
 
   detalle: function (req, res) {
@@ -28,7 +28,6 @@ const controladorProduct = {
         include:[{association:"usuario"}]
       })
       .then(function (comentario) {
-        console.log(comentario , "machiiii");
         return res.render("product", { comentario:comentario, data: data });
       })
       .catch(function (err) {
@@ -64,7 +63,6 @@ const controladorProduct = {
 
   update: function (req, res) {
     let form = req.body;
-    console.log(form);
     let filtro = { where: [{ id: form.id }] };
     db.Producto.update(form, filtro)
       .then((result) => {
@@ -152,7 +150,7 @@ const controladorProduct = {
     let filtro = {
       where: [{ id: idParaEliminar }]
     }
-    db.Movie.destroy(filtro)
+    db.Producto.destroy(filtro)
       .then((result) => {
         return res.redirect("/index");
       }).catch((err) => {

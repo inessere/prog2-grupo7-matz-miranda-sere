@@ -19,7 +19,11 @@
 										<% console.log(data.idUsuario) %>
 											<% if (locals.user !=undefined) {%>
 												<% if (locals.user.id==data.idUsuario) { %>
-													<a href="/products/productEdit/<%=data.id%> ">Editar</a>
+													<a href="/products/productEdit/<%=data.id%> "><button class="btn-special btn-red" type="submit">Editar</button></a>
+													<form action="/products/deleteProduct" method="post">
+														<input type="hidden" name="id" value="<%= data.id %>">
+														<button class="btn-special btn-red" type="submit">Eliminar</button>
+													</form>
 													<% } %>
 														<% } %>
 								</p>

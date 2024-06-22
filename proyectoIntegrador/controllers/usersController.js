@@ -1,7 +1,7 @@
-const bcrypt = require('bcryptjs');
-const db = require("../database/models");
-const { validationResult } = require("express-validator");
-const { Association } = require('sequelize');
+const bcrypt                = require('bcryptjs');
+const db                    = require("../database/models");
+const { validationResult }  = require("express-validator");
+const { Association }       = require('sequelize');
 
 
 const controladorUsers = {
@@ -61,7 +61,7 @@ const controladorUsers = {
   db.Usuario.update(edicionUsuario,{where:{id:id}})
   
   .then(function (results) {
-    console.log(results);
+
     req.session.user = {mail:req.body.email,
       contrasenia: bcrypt.hashSync(req.body.contraseña, 10),
       fecha:req.body.cumpleaños,
@@ -77,15 +77,7 @@ const controladorUsers = {
   },
   register: (req, res) => {
     return res.render("register")
-  },//originallllll
-
-  /*register: (req, res)=>{
-
-    if (req.session.user != undefined) {
-        return res.redirect("/index");
-    } else {
-        return res.render("register")
-    }},*/
+  },
 
   store: (req, res) => {
 
@@ -122,41 +114,13 @@ const controladorUsers = {
       res.render("register", { errors: errors.mapped(), old: req.body });
     }
   },
-  //originallllll
+
   login: (req, res) => {
     res.render("login")
   },
 
   loginDatos: (req, res) => {
     let errors = validationResult(req);
-
-    /*let form = req.body;
-    let filtro = {
-      where: [{ mail: form.mail }]
-    };
-
-    db.Usuario.findOne(filtro)
-      .then((user) => {
-        if (user){
-          let check = bcrypt.compareSync(form.contrasenia, result.contrasenia);
-          if (check) {
-            req.session.user = user;
-            return res.redirect("/index")
-          } else {
-        return res.render("login", {errors:errors.mapped(), old:req.body});}
-
-        }else{
-          return res.render("login", {errors:errors.mapped(), old:req.body})
-        }
-        
-      })
-      .catch((err) => {
-        return console.log(err);
-      })
-    //}else {
-      //res.render("login", {errors:errors.mapped(), old:req.body});
-  }}}*/
-    // Validar los errores de validación utilizando express-validator
 
     let form = req.body;
 
@@ -189,26 +153,7 @@ const controladorUsers = {
     res.clearCookie("userId")
     return res.redirect("/users/login")
   },
-  //showFormUpdateUser: function (req, res) {
-   // let id = req.params.id;
-   // db.Usuario.findByPk(id)
-    //  .then((result) => {
-    //    return res.render("profile-edit", { data: result });
-     // }).catch((err) => {
-     //   return console.log(err);
-      //});
-
-    //},
-    //profileUpdate: function (req, res) {
-    //  let form = req.body;
-     // let filtro = { where: [{ id: form.id }] };
-      //db.Usuario.update(form, filtro)
-       // .then((result) => {
-        //  return res.redirect("/users/profile/id" + form.id); // fijarme lo de /users!
   
-       // }).catch((err) => {
-        //  return console.log(err);
-       // });
 } 
   
 
