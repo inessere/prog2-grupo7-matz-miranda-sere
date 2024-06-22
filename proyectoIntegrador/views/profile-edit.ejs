@@ -15,43 +15,53 @@
 				<h2 class="products-title">Editar mi perfil</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<form action="/index" method="get">
+			<% if(locals.user) {%>
+			<form action="/users/profile-edit" method="post">
+				<input type="hidden" name="id" value="<%= locals.user.id%>">
+				
 				<div>
 					<label for="email">Email: </label>
-					<input id="email" type="email" name="email" value="">
-				</div>
-
-				<div>				
-					<label for="usuario">Usuario: </label>
-					<input id="usuario" type="text" name="usuario" value="">
+					<input id="email" type="email" name="email" value="<%= locals.user.mail %>">
+					<% if (locals.errors && errors.email) { %>
+						 <%= errors.email.msg %>
+					<% } %>
 				</div>
 
 				<div>
 					<label for="contraseña">Contraseña: </label>
-					<input id="contraseña" type="password" name="contraseña" value="">
+					<input id="contraseña" type="password" name="contraseña" value="<%= locals.user.contrasenia %>">
+					<% if (locals.errors && errors.contrasenia) { %>
+						<%= errors.contrasenia.msg %>
+				   <% } %>
 				</div>
 
 				<div>
 					<label for="cumpleaños">Fecha de nacimiento: </label>
-					<input id="cumpleaños" type="text" name="cumpleaños" value="">
+					<input id="cumpleaños" type="text" name="cumpleaños" value="<%= locals.user.fecha %>">
 				</div>
 
 				<div>
 					<label for="dni">Numero de documento: </label>
-					<input id="dni" type="text" name="dni" value="">
+					<input id="dni" type="text" name="dni" value="<%= locals.user.numeroDocumento %>">
 				</div>
 
 				<div>
 					<label for="foto">Foto de perfil: </label>
-					<input id="foto" type="file" name="foto" value="">
+					<input id="foto" type="file" name="foto" value="<%= locals.user.fotodeperfil %>">
 				</div>
+				<div>
+					<label for="usuario">Usuario: </label>
+							<input id="usuario" type="text" name="username" value="<%= locals.user.username %>"/>
 
-
+					</div>
 				<div>
 					<button type="submit">Enviar</button>
 				</div>
 			</form>
-
+			<% } else { %>
+			 <p>Debes iniciar sesion para poder editar tu perfil</p>
+		<% }  %>
+ 
 
 
 	<!-- footer -->

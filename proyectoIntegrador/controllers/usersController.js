@@ -28,10 +28,53 @@ const controladorUsers = {
   },
 
   profileEdit: (req, res) => {
-    res.render("profile-edit");
+    let id = req.params.id
+    db.Usuario.findByPk(id)
+      .then(function (data) {
+        if(req.session.user){
+          if(id == req.session.user.id){
+          return res.render("profile-edit", { data: data });
+          }
+        }else{
+          res.redirect("/index")
+        }
+      })
+      .catch(function (err) {
+        return console.log(err);
+      })
   },
-
-
+  dataProfile:function (req,res) {
+  let errors = validationResult(req);
+  console.log(errors);
+  if (errors.isEmpty()) {
+    let form = req.body
+    let id = req.body.id
+    
+    let edicionUsuario = {
+      mail:req.body.email,
+      contrasenia: bcrypt.hashSync(req.body.contraseña, 10),
+      fecha:req.body.cumpleaños,
+      numeroDocumento:req.body.dni,
+      fotodeperfil:req.body.foto,
+      username:req.body.username
+    }
+  db.Usuario.update(edicionUsuario,{where:{id:id}})
+  
+  .then(function (results) {
+    console.log(results);
+    req.session.user = {mail:req.body.email,
+      contrasenia: bcrypt.hashSync(req.body.contraseña, 10),
+      fecha:req.body.cumpleaños,
+      numeroDocumento:req.body.dni,
+      fotodeperfil:req.body.foto,id:id,username:req.body.username};
+    return res.redirect("/index");
+  }).catch((err) => {
+    return console.log(err);
+  })
+} else {
+  res.render("profile-edit", { errors: errors.mapped(), old: req.body });
+}
+  },
   register: (req, res) => {
     return res.render("register")
   },//originallllll
@@ -106,9 +149,6 @@ const controladorUsers = {
           return res.render("login", {errors:errors.mapped(), old:req.body})
         }
         
-        
-      
-        
       })
       .catch((err) => {
         return console.log(err);
@@ -148,9 +188,28 @@ const controladorUsers = {
     req.session.destroy();
     res.clearCookie("userId")
     return res.redirect("/users/login")
-  }
+  },
+  //showFormUpdateUser: function (req, res) {
+   // let id = req.params.id;
+   // db.Usuario.findByPk(id)
+    //  .then((result) => {
+    //    return res.render("profile-edit", { data: result });
+     // }).catch((err) => {
+     //   return console.log(err);
+      //});
 
-
-}
+    //},
+    //profileUpdate: function (req, res) {
+    //  let form = req.body;
+     // let filtro = { where: [{ id: form.id }] };
+      //db.Usuario.update(form, filtro)
+       // .then((result) => {
+        //  return res.redirect("/users/profile/id" + form.id); // fijarme lo de /users!
+  
+       // }).catch((err) => {
+        //  return console.log(err);
+       // });
+} 
+  
 
 module.exports = controladorUsers;

@@ -10,6 +10,7 @@
 						<div class="container products-wrapper">
 							<div class="d-flex align-items-center">
 								<h2 class="products-title">
+									
 									<%= data.nombreProducto %>
 								</h2>
 
@@ -21,10 +22,8 @@
 													<a href="/products/productEdit/<%=data.id%> ">Editar</a>
 													<% } %>
 														<% } %>
-
 								</p>
 							</div>
-
 
 							<div class="product-detail ">
 								<div class="comentario">
@@ -33,44 +32,48 @@
 										<p class="product-detail-description">
 											<%= data.descripcionProducto%>
 										</p>
-										
+
 									</article>
 
 									<div class="">
-										<% for( let i=0; i < data.comentario.length; i++ ) { %>
+										<% for( let i=0; i < comentario.length; i++ ) { %>
 											<div class="comentariosProducto">
 												<img class="fotoPerfilUsuario"
-													src="/images/users/<%= data.comentario[i].usuario.fotodeperfil %>"
+													src="/images/users/<%= comentario[i].usuario.fotodeperfil %>"
 													alt="Foto de perfil" width="50">
-												<a href="/users/profile/id/<%= data.comentario[i].usuario.id %>">
+												<a href="/users/profile/id/<%= comentario[i].usuario.id %>">
 													<p class="nombre-usuario"><strong>
-															<%= data.comentario[i].usuario.mail %>
+															<%= comentario[i].usuario.mail %>
 														</strong></p>
 												</a>
 												<p class="comentario-texto">
-													<%= data.comentario[i].comentario %>  
+													<%= comentario[i].comentario %>
 												</p>
 											</div>
 											<% } %>
 
-
 												</section>
 												<% if (locals.user !=undefined) {%>
-													<form class="form" action="/products/comentario/id/<%= data.id %>"
-														method="post">
-														<input class="form-input" type="text" value=""
+													<form class="form" action="/products/comentario/id/<%= data.id %>"method="post">
+														<input class="form-input" type="text" value="<%= locals.old !== undefined && old.comentario ? old.comentario: "" %>"
 															placeholder="Agregar comentario" name="comentario">
-														<button type="submit" class="buy-now-button">AGREGAR
-															COMENTARIO</button>
+														<% if (locals.errors && errors.comentario ) { %>
+															<p>
+																		<%= errors.comentario.msg %>
+																	</p>
+
+															<%} %>
+																<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 													</form>
 													<% } else { %>
-														<h3 class="recordatorio"> Recorda que debes estar logueado para poder comentar acerca de este producto.</h3>
-													<% } %>
+														<h3 class="recordatorio"> Recorda que debes estar logueado para
+															poder comentar acerca de este producto.</h3>
+														<% } %>
 
 
 
 
-														<hr>
+															<hr>
 
 									</div>
 								</div>

@@ -18,6 +18,14 @@ let validationsProducto = [
         .withMessage("debes ingresar una descripcion para el nuevo producto")
         .bail()
 ]
+let validationComentario=[
+body("comentario")
+    .notEmpty()
+    .withMessage("Debes ingresar un comentario")
+    .isLength({ min: 3 })
+    .withMessage("La longitud del mensaje debe tener mas de 3 caracteres")
+    .bail(),
+]
 
 router.get("/id/:id", controladorProduct.detalle);
 router.get('/product-add', controladorProduct.showFormCreate);
@@ -28,7 +36,7 @@ router.get('/editProduct/:id', controladorProduct.showFormUpdate);
 //POST
 router.post("/productEdit", controladorProduct.update);
 router.post('/product-add', validationsProducto, controladorProduct.store);
-router.post("/comentario/id/:id", controladorProduct.comentario);
+router.post("/comentario/id/:id",validationComentario, controladorProduct.storeComentario);
 
 
 

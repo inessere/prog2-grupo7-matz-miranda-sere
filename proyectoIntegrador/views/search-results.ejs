@@ -1,7 +1,4 @@
 <!-- Include Head -->
-
-
-
 <body>
 	<% if (locals.user != undefined) { %>
 		<%- include('./partials/headLogueado') %>
@@ -14,23 +11,26 @@
 			<div class="col-12">
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
-			<!-- Show the "ultimos" products -->
-			
-			<% for( let i = 0; i < 4; i++ ) { %>
+		<!-- muestra los productos buscados -->
+		<% if (data.length > 0) { %>
+			<% for( let i = 0; i < data.length; i++ ) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/products/product">
+						<a href="/products/id/<%=data[i].id%>">
 							<figure class="product-box_image">
-								<img src="<%= data.productos[i].fotoproducto %>" alt="<% %>" width="300" >
-							</figure>
+								<img src=" /images/products/<%=data[i].fotoproducto %>" alt="<% %>" width="300" >
 							<article class="product-box_data">
-								<h2> <%= data.productos[i].nombreproducto %> </h2>
-								<p><%= data.productos[i].descripcion %></p>
-								<p> Comentarios: <%=data.productos[i].comentarios.length %> </p>
+								<h2> <%= data[i].nombreProducto %> </h2>
+								<p><%= data[i].descripcionProducto %></p>
+								<p>Comentarios: <%=data[i].comentario.length %> </p>
+								<p>Cargado por: <a href="/users/id/<%= data[i].usuario.id%>"><%= data[i].usuario.mail%></a></p>
 							</article>
 						</a>
 					</section>
 				</div>
+			<% } %>
+			<% } else { %>
+				<p>No hay resultados para su búsqueda</p>
 			<% } %>
 
 	<!-- footer -->

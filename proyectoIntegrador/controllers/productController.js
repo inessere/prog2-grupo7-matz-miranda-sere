@@ -1,6 +1,7 @@
 const { Association } = require("sequelize");
 const db = require("../database/models");
 const Producto = db.Producto;
+const { Op } = require('sequelize');
 const { validationResult } = require("express-validator");
 const controladorProduct = {
 
@@ -20,13 +21,20 @@ const controladorProduct = {
       ]
     }
     Producto.findByPk(id, criterio)
-      .then(function (data) {
-        return res.render("product", { data: data });
+    .then(function (data) {
+      db.Comentario.findAll({
+        where:{idProducto:id},
+        order:[["createdAt","DESC"]],
+        include:[{association:"usuario"}]
+      })
+      .then(function (comentario) {
+        console.log(comentario , "machiiii");
+        return res.render("product", { comentario:comentario, data: data });
       })
       .catch(function (err) {
         return console.log(err);
       })
-  },
+  })},
 
   showFormCreate: function (req, res) {
     return res.render("product-add");
@@ -69,8 +77,47 @@ const controladorProduct = {
   },
 
   searchResults: function (req, res) {
-    res.render("search-results", { "data": db });
-  },
+    let busqueda = req.query.search;
+    Producto.findAll({
+        include: [
+            {
+                association: "comentario",
+                include: [
+                    { association: "usuario" }
+                ]
+            },
+            { association: "usuario" }
+        ],
+        where: {
+            [Op.or]: [
+                {
+                    nombreProducto: {
+                        [Op.like]: `%${busqueda}%`
+                    }
+                },
+                {
+                    descripcionProducto: {
+                        [Op.like]: `%${busqueda}%`
+                    }
+                }
+            ]
+        },
+        order: [["createdAt", "DESC"]]
+
+    })
+        .then(function (data) {
+            if (data.length > 0) {
+                res.render("search-results", { "data": data });
+
+            } else {
+
+                res.render("search-results", { "data": "", message: "Ocurrió un error al realizar la búsqueda" });
+            }
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
+      },
 
   store: function (req, res) {
     let errors = validationResult(req)
@@ -113,22 +160,53 @@ const controladorProduct = {
       });
 
   },
-  comentario: function (req, res) {
-    console.log(req.params);
-    let comentario = {
-      comentario: req.body.comentario,
-      idUsuario: req.session.user.id,
-      idProducto: req.params.id
-    }
-    db.Comentario.create(comentario)
-      .then(function (result) {
-        return res.redirect("/index")
-      }).catch(function (err) {
-        console.log(err);
+  storeComentario: function (req, res) {
+    let errors = validationResult(req);
+    let form= req.body
+    if (errors.isEmpty()) {
+      let comentario = {
+        comentario: form.comentario,
+        idUsuario: req.session.user.id,
+        idProducto: req.params.id
+      }
+      db.Comentario.create(comentario)
+        .then(function (result) {
+          return res.redirect("/index")
+        }).catch(function (err) {
+          console.log(err);
+  
+        })
+      }else{
+          let id = req.params.id
+          let criterio = {
+            include: [
+              {
+                association: "comentario", 
+                include: [
+                  { association: "usuario" }
+                ]
+              },
+              { association: "usuario" }
+            ]
+          };
+          Producto.findByPk(id, criterio)
+          .then(function (data) {
+            return db.Comentario.findAll({
+              where:{idProducto:id},
+              order:[["createdAt","DESC"]],
+              include:[{association:"usuario"}]
+          }).then(function (comentarios) {               
+              return res.render("product",{ 
+                comentario:comentarios,
+                data:data, 
+                errors: errors.mapped(), 
+                old:req.body 
+              });
+            });
+          })
+          .catch(function (err) {
+              return console.log(err);
+          })
+      }}}
 
-      })
-
-  }
-}
-
-module.exports = controladorProduct;
+      module.exports = controladorProduct;

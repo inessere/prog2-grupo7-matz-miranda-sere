@@ -15,12 +15,16 @@
 								</div>
 								<div class="data-container col-6">
 									<div class="d-flex align-items-center ">
-										<h1 class="main-title">
-											<%= data.mail%>
-												<a href="/users/profile-edit">
-													<i class="fas fa-cog"></i>
-												</a>
-										</h1>
+										
+										<% if (locals.user !=undefined) {%>
+											<% if (locals.user.id==data.id) { %>
+												<h1 class="main-title"><%= data.mail%>
+													<a href="/users/profile-edit/id/<%= data.id %>"><i class="fas fa-cog"></i>
+													</a>
+												</h1>
+												<% } %>
+													<% } %>
+										
 										<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 									</div>
 									<div>
